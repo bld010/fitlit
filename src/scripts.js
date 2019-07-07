@@ -8,10 +8,7 @@ let sleepRepo = new SleepRepository(sleepData)
 console.log('calling current sleep', currentSleep.returnDayHours("2019/06/23"))
 // console.log(currentHydration);
 let activity = new Activity(activityData, getRandomNumber());
-let activityDay = activity.returnDay("2019/06/23")
-let sleepQuality = currentSleep.returnDayQual("2019/06/23");
-let sleepHours = currentSleep.returnDayHours("2019/06/23")
-
+let activityDay = activity.returnDay("2019/06/23");
 // console.log(currentSleep.returnDayQual("2019/06/23"));
 
 $(document).ready(function(){
@@ -25,9 +22,7 @@ $(document).ready(function(){
     $('.main__section--daily-intake').text(currentHydration.returnIntakeByDay("2019/06/23"))
     $('.main__section--average-intake').text(currentHydration.returnDailyAverage())
     $('.main__section--hydration-canvas').text(currentHydration.returnWeekIntake())
-    // $('.main__section--daily-sleep-hours').text(`${sleepHours}`)
     $('.main__section--daily-sleep-hours').text(currentSleep.returnDayHours("2019/06/23"))
-    // $('.main__section--daily-sleep-quality').text(`${sleepQuality}`)
     $('.main__section--daily-sleep-quality').text(currentSleep.returnDayQual("2019/06/23"))
     $('.main__section--week-sleep-hours').text(currentSleep.returnWeekHours("2019/06/23"))
     $('.main__section--week-sleep-quality').text(currentSleep.returnWeekHours("2019/06/23"))
@@ -52,8 +47,9 @@ Chart.defaults.global.defaultFontColor = 'black';
 
 let hydrationWeekData = currentHydration.returnWeekIntake();
 let hydrationDays = hydrationWeekData.reduce((acc, day) => {
-    day.date = day.date.split('/').filter(index => index.length !== 4).join('/');
-    acc.push(day);
+    let today = day;
+    let newDate = today.date.split('/').filter(index => index.length !== 4).join('/');
+    acc.push(newDate);
     return acc;
   }, []);
 
@@ -63,7 +59,7 @@ const chart = new Chart(ctx, {
     type: 'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
     // The data for our dataset
     data: {
-        labels: [`${hydrationDays[0].date}`, `${hydrationDays[1].date}`, `${hydrationDays[2].date}`, `${hydrationDays[3].date}`, `${hydrationDays[4].date}`, `${hydrationDays[5].date}`, `${hydrationDays[6].date}`],
+        labels: [`${hydrationDays[0]}`, `${hydrationDays[1]}`, `${hydrationDays[2]}`, `${hydrationDays[3]}`, `${hydrationDays[4]}`, `${hydrationDays[5]}`, `${hydrationDays[6]}`],
         datasets: [{
             label: 'My Last Week of Hydration in Ounces',
             backgroundColor: 'blue',
