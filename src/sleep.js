@@ -19,11 +19,14 @@ class Sleep {
   }
 
   returnDayHours(date) {
-    return this.data.find(day => day.date === date).hoursSlept;
+    let day = this.data.find(day => day.date === date)
+    console.log('day', day)
+    return day.hoursSlept;
   }
 
   returnDayQual(date) {
-    return this.data.find(day => day.date === date).sleepQuality;
+    let day = this.data.find(day => day.date === date)
+    return day.sleepQuality;
   }
 
   returnWeekHours(date) {

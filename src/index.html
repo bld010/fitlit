@@ -27,17 +27,19 @@
           <h2>Hydration</h2>
           <p>Today: <span class="main__section--daily-intake"></span> ounces</p>
           <p>Your Average Water Intake: <span class="main__section--average-intake"></span> ounces</p>
-          <div class="main__section--hydration-week">
             Week Info:
-            <span class="main__section--hydration-canvas">
-              
-            </span>
+          <div class="main__section--hydration-week">
+            <canvas id="hydrationChart"></canvas>
           </div>
         </section>
         <section class="main__section--sleep">
           <h2>Sleep</h2>
           <p>Today's Sleep - Hours: <span class="main__section--daily-sleep-hours"></span> Quality: <span class="main__section--daily-sleep-quality"></span></p>
           <p>Last Week's Sleep Summary - Hours: <span class="main__section--week-sleep-hours"></span> Quality: <span class="main__section--week-sleep-quality"></span></p>
+          <p>Your Average Sleep Hours: <span class="main__section--average-sleep"></span></p>
+            <div class="main__section--sleep-week">
+              <canvas id="sleepHoursChart"></canvas>
+            </div>
           <p>Overall Sleep Summary - Hours: <span class="main__section--average-sleep-hours"></span> Quality: <span class="main__section--average-sleep-quality"></p>
         </section>
         <section class="main__section--activity">
@@ -51,13 +53,14 @@
           <article>You vs. The World: <span></span></article> 
         </section>
       </main>
-    <script type="text/javascript" src="./sleep.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script type="text/javascript" src="../data/sleep.js"></script>
     <script type="text/javascript" src="../data/hydration.js"></script>
     <script type="text/javascript" src="../data/activity.js"></script>
     <script type="text/javascript" src="./activity-repository.js"></script>
     <script type="text/javascript" src="./activity.js"></script>
     <script type="text/javascript" src="./sleep-repository.js"></script>
+    <script type="text/javascript" src="./sleep.js"></script>
     <script type="text/javascript" src="./hydration.js"></script>
     <script type="text/javascript" src="../data/users.js"></script>
     <script type="text/javascript" src="./user-repository.js"></script>

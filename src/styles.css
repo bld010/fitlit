@@ -73,3 +73,10 @@ main {
 .main__section--activity h2 {
     height: 30px;
 }
+
+.main__section--hydration-week,
+.main__section--sleep-week {
+    display: inline-block;
+    height: 300px;
+    width: 300px;
+}
