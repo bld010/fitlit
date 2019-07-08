@@ -5,15 +5,11 @@ let currentUser = new User(globalRepo.returnUser(getRandomNumber()));
 let currentHydration = new Hydration(hydrationData, currentUser.id);
 let currentSleep = new Sleep(sleepData, currentUser.id);
 let sleepRepo = new SleepRepository(sleepData)
-
 console.log('calling current sleep', currentSleep.returnDayHours("2019/06/23"))
-
-// console.log(currentSleep.returnWeekHours("2019/06/23"))
-// console.log(currentHydration);
 let activity = new Activity(activityData, getRandomNumber());
 let activityDay = activity.returnDay("2019/06/23");
-let activityRepo = new ActivityRepository(activityData)
-console.log(activityRepo)
+let activityRepo = new ActivityRepository(activityData);
+console.log(activityRepo);
 
 
 // console.log(currentHydration);
@@ -98,7 +94,7 @@ let hydrationDays = hydrationWeekData.reduce((acc, day) => {
     return acc;
   }, []);
 
-const ctx = $('#hydrationChart')
+const ctx = $('#hydration-chart')
 const chart = new Chart(ctx, {
     // The type of chart we want to create
     type: 'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
@@ -128,7 +124,6 @@ const chart = new Chart(ctx, {
 });
 
 let sleepWeek = currentSleep.returnWeekHours("2019/06/23");
-// console.log(sleepWeek);
 let sleepDays = sleepWeek.reduce((acc, day) => {
     let today = day;
     let newDate = today.date.split('/').filter(index => index.length !== 4).join('/');
@@ -136,15 +131,15 @@ let sleepDays = sleepWeek.reduce((acc, day) => {
     return acc;
   }, []);
 
-const ctx2 = $('#sleepHoursChart')
+const ctx2 = $('#sleep-hours-chart')
 const chart2 = new Chart(ctx2, {
     // The type of chart we want to create
-    type: 'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+    type: 'horizontalBar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
     // The data for our dataset
     data: {
         labels: [`${sleepDays[0]}`, `${sleepDays[1]}`, `${sleepDays[2]}`, `${sleepDays[3]}`, `${sleepDays[4]}`, `${sleepDays[5]}`, `${sleepDays[6]}`],
         datasets: [{
-            label: 'My Last Week of Hydration in Ounces',
+            label: 'My Last Week of Sleep in Hours',
             backgroundColor: 'grey',
             borderColor: 'black',
             borderWidth: 2,
@@ -163,4 +158,161 @@ const chart2 = new Chart(ctx2, {
         }
     }
 
+});
+
+
+const ctx3 = $('#step-goal-chart')
+const chart3 = new Chart(ctx3, {
+    // The type of chart we want to create
+    type: 'polarArea', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+    // The data for our dataset
+    data: {
+        labels: [`My Step Goal`, `Average Step Goal`,],
+        datasets: [{
+            label: 'My Step Goals',
+            backgroundColor: ['green', 'black'],
+            borderColor: 'black',
+            borderWidth: 2,
+            data: [`${currentUser.dailyStepGoal}`, `${globalRepo.returnAvgStepGoal()}`]
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+        title: {
+            display: true,
+            text: 'My Step Goals'
+        },
+        legend: {
+            display: false,
+            position: 'bottom'
+        }
+    }
+
+});
+
+
+const ctx4 = $('#step-goal-chart-two')
+const chart4 = new Chart(ctx4, {
+    // The type of chart we want to create
+    type: 'doughnut', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+    // The data for our dataset
+    data: {
+        labels: [`My Step Goal`, `Average Step Goal`,],
+        datasets: [{
+            label: 'My Step Goals',
+            backgroundColor: ['green', 'black'],
+            borderColor: 'black',
+            borderWidth: 2,
+            data: [`${currentUser.dailyStepGoal}`, `${globalRepo.returnAvgStepGoal()}`]
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+        title: {
+            display: true,
+            text: 'My Step Goals'
+        },
+        legend: {
+            display: false
+        }
+    }
+
+});
+// let sleepWeek = currentSleep.returnWeekHours("2019/06/23");
+// // console.log(sleepWeek);
+// let sleepDays = sleepWeek.reduce((acc, day) => {
+//     let today = day;
+//     let newDate = today.date.split('/').filter(index => index.length !== 4).join('/');
+//     acc.push(newDate);
+//     return acc;
+//   }, []);
+
+const ctx5 = $('#sleep-quality-chart')
+const chart5 = new Chart(ctx5, {
+    // The type of chart we want to create
+    type: 'horizontalBar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+    // The data for our dataset
+    data: {
+        labels: [`${sleepDays[0]}`, `${sleepDays[1]}`, `${sleepDays[2]}`, `${sleepDays[3]}`, `${sleepDays[4]}`, `${sleepDays[5]}`, `${sleepDays[6]}`],
+        datasets: [{
+            label: 'Sleep Quality Last Week',
+            backgroundColor: 'grey',
+            borderColor: 'black',
+            borderWidth: 2,
+            data: [`${sleepWeek[0].sleepQuality}`, `${sleepWeek[1].sleepQuality}`, `${sleepWeek[2].sleepQuality}`, `${sleepWeek[3].sleepQuality}`, `${sleepWeek[4].sleepQuality}`, `${sleepWeek[5].sleepQuality}`, `${sleepWeek[6].sleepQuality}`]
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+        title: {
+            display: true,
+            text: 'Sleep Quality this Week'
+        },
+        legend: {
+            display: false
+        }
+    }
+
+});
+
+const ctx6 = $('#all-time-sleep-quality-chart')
+const chart6 = new Chart(ctx6, {
+    // The type of chart we want to create
+    type: 'doughnut', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+    // The data for our dataset
+    data: {
+        labels: [`My Sleep Quality`, 'Average Sleep Quality'],
+        datasets: [{
+            label: 'Sleep Quality All Time',
+            backgroundColor: ['yellow', 'blue'],
+            borderColor: 'black',
+            borderWidth: 1,
+            data: [`${currentSleep.returnAllTimeAvgQual()}`, `${sleepRepo.returnAllSleepQual()}`]
+        }
+    ]
+    },
+
+    // Configuration options go here
+    options: {
+        title: {
+            display: true,
+            text: 'My Average Sleep Quality'
+        },
+        legend: {
+            display: false
+        }
+    }
+});
+
+
+const ctx7 = $('#all-time-sleep-hours-chart')
+const chart7 = new Chart(ctx7, {
+    // The type of chart we want to create
+    type: 'doughnut', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+    // The data for our dataset
+    data: {
+        labels: [`My Sleep Hours`, 'Average Sleep Hours'],
+        datasets: [{
+            label: 'Sleep Hours All Time',
+            backgroundColor: ['yellow', 'blue'],
+            borderColor: 'black',
+            borderWidth: 1,
+            data: [`${currentSleep.returnAllTimeAvgHours()}`, `${sleepRepo.returnAllSleepHours()}`]
+        }
+    ]
+    },
+
+    // Configuration options go here
+    options: {
+        title: {
+            display: true,
+            text: 'My Average Sleep Hours'
+        },
+        legend: {
+            display: false
+        }
+    }
 });

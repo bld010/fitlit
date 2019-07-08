@@ -68,11 +68,13 @@ main {
     width: 90%;
 }
 
-.main__section--activity--item {
+/* .main__section--activity--item {
+
 }
 
 .main__section--sleep--hours {
-}
+
+} */
 
 /* .main__section--activity article {
     height: 100px;
@@ -86,7 +88,8 @@ main {
 }
 
 .main__section--hydration-week,
-.main__section--sleep-week {
+.main__section--sleep-week,
+.main__section--step-goal {
     display: inline-block;
     height: 300px;
     width: 300px;

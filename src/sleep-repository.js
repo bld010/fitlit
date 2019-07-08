@@ -6,6 +6,12 @@ class SleepRepository {
   constructor(data) {
       this.data = data;
   }
+  returnAllSleepHours() {
+    let allSleepHours = this.data.reduce((acc, day) => { 
+      return acc += day.hoursSlept
+    }, 0) / this.data.length;
+    return allSleepHours.toFixed(1);
+  }
 
   returnAllSleepQual() {
     let allSleepQual = this.data.reduce((acc, day) => { 
