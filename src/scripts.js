@@ -316,3 +316,49 @@ const chart7 = new Chart(ctx7, {
         }
     }
 });
+
+
+const ctx8 = $('#activity-metrics-yesterday')
+const chart8 = new Chart(ctx8, {
+    // The type of chart we want to create
+    type: 'doughnut', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+    // The data for our dataset
+    data: {
+        labels: [`My Activity`, 'Average Activity'],
+        datasets: [{
+            label: 'My Steps',
+            backgroundColor: ['red', 'grey'],
+            borderColor: 'black',
+            borderWidth: 1,
+            data: [`${activityDay.numSteps}`, `${activityRepo.returnAvgSteps('2019/06/23')}`]
+            
+        },
+        {
+            label: 'Minutes Active',
+            backgroundColor: ['red', 'grey'],
+            borderColor: 'black',
+            borderWidth: 1,
+            data: [`${activityDay.minutesActive}`, `${activityRepo.returnAvgMins('2019/06/23')}`]
+        },
+        {
+            label: 'Steps Climbed',
+            backgroundColor: ['red', 'grey'],
+            borderColor: 'black',
+            borderWidth: 1,
+            data: [`${activityDay.flightsOfStairs}`, `${activityRepo.returnAvgStairs('2019/06/23')}`]
+        }
+
+    ]
+    },
+
+    // Configuration options go here
+    options: {
+        title: {
+            display: true,
+            text: 'Activity Metrics'
+        },
+        legend: {
+            display: true
+        }
+    }
+});
