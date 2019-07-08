@@ -38,8 +38,8 @@ main {
     grid-row-gap: 20px;
     grid-column-gap: 20px;
     grid-template-areas: 
-    "friends hydration hydration hydration"
-    "friends sleep sleep sleep"
+    "friends activity activity activity"
+    "friends activity activity activity"
     ". activity activity activity"
     ". activity activity activity"
     

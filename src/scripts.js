@@ -291,7 +291,7 @@ const chart6 = new Chart(ctx6, {
 const ctx7 = $('#all-time-sleep-hours-chart')
 const chart7 = new Chart(ctx7, {
     // The type of chart we want to create
-    type: 'doughnut', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+    type: 'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
     // The data for our dataset
     data: {
         labels: [`My Sleep Hours`, 'Average Sleep Hours'],
@@ -307,6 +307,17 @@ const chart7 = new Chart(ctx7, {
 
     // Configuration options go here
     options: {
+        scales: {
+            yAxes: [{
+                barPercentage: 0.5,
+                barThickness: 1000,
+                maxBarThickness: 8,
+                minBarLength: 20,
+                gridLines: {
+                    offsetGridLines: true
+                }
+            }]
+        },
         title: {
             display: true,
             text: 'My Average Sleep Hours'
