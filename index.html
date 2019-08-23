@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="reset.css">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="./src/reset.css">
+    <link rel="stylesheet" type="text/css" href="./src/styles.css">
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:900i|Open+Sans:400,800&display=swap" rel="stylesheet">
     <title>FitLit</title>
@@ -29,9 +29,9 @@
         <section class="main__section--activity grid">
           <article class="main__section--hydration--today grid-item">
             <h4>Today's Water Intake</h4>
-            <img src="../images/water-drop.svg" class="icon"> 
-            <img src="../images/water-drop.svg" class="icon"> 
-            <img src="../images/water-drop.svg" class="icon">
+            <img src="./images/water-drop.svg" class="icon"> 
+            <img src="./images/water-drop.svg" class="icon"> 
+            <img src="./images/water-drop.svg" class="icon">
             <p>You've had <span>0</span> ounces of water today.</p>
           </article>
           <article class="main__section--hydration--week grid-item grid-item--width2 grid-item--height2">
@@ -42,7 +42,7 @@
           </article>
           <article class="main__section--sleep--last-night grid-item">
             <h4>Last Night</h4>
-            <img src="../images/moon.svg" class="main__section--sleep--hours icon">
+            <img src="./images/moon.svg" class="main__section--sleep--hours icon">
             <p>Hours: <span></span></p>
             <p>Quality: <span></span></p>
           </article>
@@ -56,7 +56,7 @@
             </div>
             <div class="main__section--sleep--worst">
               <h4>Worst Night This week</h4>
-              <img src="../images/sleepy-worker.svg" class="icon">
+              <img src="./images/sleepy-worker.svg" class="icon">
               <div>
                 <p>Date: <span></span></p> 
                 <p>Quality: <span></span></p>
@@ -65,7 +65,7 @@
           </article> 
           <article class="main__section--sleep--averages grid-item">
             <h4>Your Averages</h4>
-            <img src="../images/bed.svg" class="main__section--sleep--averages icon">
+            <img src="./images/bed.svg" class="main__section--sleep--averages icon">
             <p>Hours: <span></span> Quality: <span></span></p>
           </article>
           <article class="grid-item main__section--activity--item grid-item grid-item--height2 grid-item--width2">
@@ -88,38 +88,38 @@
           </article>
           <article class="grid-item main__section--activity--steps">
             <h4>Steps</h4>
-            <img class= "main__section--activity--steps icon" src="../images/footprint.svg">
+            <img class= "main__section--activity--steps icon" src="./images/footprint.svg">
             <p><span></span></p>
           </article>
           <article class="grid-item main__section--activity--miles">
             <h4>Miles</h4>
-            <img class= "main__section--activity--miles icon" src="../images/miles.svg">
+            <img class= "main__section--activity--miles icon" src="./images/miles.svg">
             <p><span></span></p>
           </article>
           <article class="grid-item main__section--activity--minutes">
             <h4>Active Minutes</h4>
-            <img class= "main__section--activity--minutes icon" src="../images/lightning.svg">
+            <img class= "main__section--activity--minutes icon" src="./images/lightning.svg">
             <p><span></span></p>
           </article>
           <article class="grid-item main__section--activity--flights">
               <h4>Flights of Stairs</h4>
-              <img class= "main__section--activity--minutes icon" src="../images/climbing-stairs.svg">
+              <img class= "main__section--activity--minutes icon" src="./images/climbing-stairs.svg">
               <p><span></span></p>
           </article>
           <article class="grid-item main__section--activity--empire grid-item grid-item--height2">
             <h4>Empire Challenge</h4>
-            <img class= "main__section--activity--empire icon" src="../images/empire-state-building.svg">
+            <img class= "main__section--activity--empire icon" src="./images/empire-state-building.svg">
             <p>You've climbed the Empire State Building <span></span> times.</p>
           </article>
           <article class="grid-item main__section--activity--trends grid-item grid-item--height2">
             <h4>On Fire</h4>
-            <img class= "main__section--activity--trends icon" src="../images/flame.svg">
+            <img class= "main__section--activity--trends icon" src="./images/flame.svg">
             <p>On <span></span> you had an increasing step trend for at least 3 days. </p>
             <p>On <span></span> you had an increasing stair climbing trend for at least 3 days</p>
           </article>
           <article class="grid-item main__section--activity--world grid-item--width2 grid-item--height2">
             <h4>You vs. The World</h4>
-            <img class="main__section--activity--world icon" src="../images/world.svg">
+            <img class="main__section--activity--world icon" src="./images/world.svg">
             <table>
               <tr>
                 <th></th>
@@ -152,19 +152,19 @@
       </main>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script type="text/javascript" src="./sleep.js"></script>
-    <script type="text/javascript" src="../data/sleep.js"></script>
-    <script type="text/javascript" src="../data/hydration.js"></script>
-    <script type="text/javascript" src="../data/activity.js"></script>
-    <script type="text/javascript" src="./activity-repository.js"></script>
-    <script type="text/javascript" src="./activity.js"></script>
-    <script type="text/javascript" src="./sleep-repository.js"></script>
-    <script type="text/javascript" src="./hydration.js"></script>
-    <script type="text/javascript" src="../data/users.js"></script>
-    <script type="text/javascript" src="./user-repository.js"></script>
-    <script type="text/javascript" src="./user.js"></script>
+    <script type="text/javascript" src="./data/sleep.js"></script>
+    <script type="text/javascript" src="./data/hydration.js"></script>
+    <script type="text/javascript" src="./data/activity.js"></script>
+    <script type="text/javascript" src="./src/activity-repository.js"></script>
+    <script type="text/javascript" src="./src/activity.js"></script>
+    <script type="text/javascript" src="./src/sleep-repository.js"></script>
+    <script type="text/javascript" src="./src/hydration.js"></script>
+    <script type="text/javascript" src="./data/users.js"></script>
+    <script type="text/javascript" src="./src/user-repository.js"></script>
+    <script type="text/javascript" src="./src/user.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="../node_modules/packery/dist/packery.pkgd.min.js"></script>
-    <script src="../node_modules/draggabilly/dist/draggabilly.pkgd.min.js"></script> 
-    <script type="text/javascript" src="./scripts.js"></script>
+    <script src="./node_modules/packery/dist/packery.pkgd.min.js"></script>
+    <script src="./node_modules/draggabilly/dist/draggabilly.pkgd.min.js"></script> 
+    <script type="text/javascript" src="./src/scripts.js"></script>
   </body>
 </html>

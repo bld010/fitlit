@@ -34,8 +34,6 @@ class Activity {
     }, 0) / currentWeek.length)
   }
 
-  //write test for this function below
-
   returnWeeklySteps(date) {
     let dayIndex = this.data.findIndex(day => day.date === date)
     let currentWeek = this.data.slice(dayIndex-6, dayIndex+1);
@@ -77,6 +75,7 @@ class Activity {
     },0)
     return parseFloat((totalFlights / 102).toFixed(1))
   }
+  
   returnWeekInfo(date) {
     let index = this.data.findIndex(day => day.date === date);
     return this.data.slice(index-6, index+1)
